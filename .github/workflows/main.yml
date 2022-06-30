@@ -17,14 +17,13 @@ jobs:
         sudo apt-get install python3-pip 
         pip3 install mysql-connector-python
 
-    - name: Test
+    - name: MySQL
       run: |
-        sudo apt-get install mysql-server
         sudo systemctl start mysql.service
 
-    - name: Test
+    - name: MySQlRoot
       run: |
-        sudo mysql --user=root -e"DROP USER 'root'@'localhost'; CREATE USER 'root'@'localhost' IDENTIFIED BY '121212';  GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' WITH GRANT OPTION;"
+        mysqladmin -u root password '121212'
 
     - name: Test
       run: |
