@@ -20,5 +20,11 @@ jobs:
     - name: Test
       run: |
         sudo systemctl start mysql.service
+
+    - name: Test
+      run: |
         sudo mysql --user=root -e"DROP USER 'root'@'localhost'; CREATE USER 'root'@'localhost' IDENTIFIED BY '121212';  GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' WITH GRANT OPTION;"
+
+    - name: Test
+      run: |
         python3 select.py
