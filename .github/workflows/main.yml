@@ -19,8 +19,8 @@ jobs:
 
     - name: MySQLStart
       run: |
+        sudo systemctl start  mysql.service
         sudo systemctl status mysql.service
-        systemctl status mysql.service
 
     - name: MySQLTest
       run: |
