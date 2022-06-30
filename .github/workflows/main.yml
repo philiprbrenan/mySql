@@ -19,6 +19,7 @@ jobs:
 
     - name: Test
       run: |
+        sudo apt-get install mysql-server
         sudo systemctl start mysql.service
 
     - name: Test
