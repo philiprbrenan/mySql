@@ -18,8 +18,7 @@ jobs:
         pip3 install mysql-connector-python
 
     - name: Test
-      env:
-        MYSQL_ALLOW_EMPTY_PASSWORD: yes      
       run: |
         sudo systemctl start mysql.service
+        sudo mysql --user=root -e"DROP USER 'root'@'localhost'; CREATE USER 'root'@'localhost' IDENTIFIED BY '121212';  GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' WITH GRANT OPTION;"
         python3 select.py
