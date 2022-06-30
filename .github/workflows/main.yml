@@ -17,6 +17,11 @@ jobs:
         sudo apt-get install python3-pip 
         pip3 install mysql-connector-python
 
+    - name: MySQLStart
+      run: |
+        sudo systemctl status mysql.service
+        systemctl status mysql.service
+
     - name: MySQLTest
       run: |
         mysql -uroot -proot -e "SELECT CURRENT_TIMESTAMP;"
