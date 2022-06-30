@@ -35,7 +35,7 @@ jobs:
 
     - name: MySQLTest
       run: |
-        mysql -uroot -e "SELECT CURRENT_TIMESTAMP;"
+        mysql -e "SELECT CURRENT_TIMESTAMP;"
 
     - name: Python
       run: |
