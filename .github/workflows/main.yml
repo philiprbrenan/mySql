@@ -19,8 +19,8 @@ jobs:
 
     - name: MySQL
       run: |
-        sudo apt-get remove mysql
-        sudo apt-get install mysql
+        sudo apt remove  mysql-server
+        sudo apt install mysql-server
         sudo systemctl start mysql.service
 
     - name: Test
