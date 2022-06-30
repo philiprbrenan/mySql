@@ -17,25 +17,9 @@ jobs:
         sudo apt-get install python3-pip 
         pip3 install mysql-connector-python
 
-    - name: MySQLRemove
-      run: |
-        sudo apt remove  mysql-server
-
-    - name: MySQLInstall
-      run: |
-        sudo apt install mysql-server -y
-
-    - name: MySQLStart
-      run: |
-        sudo systemctl start mysql.service
-
-    - name: MySQLStatus
-      run: |
-        sudo systemctl status mysql
-
     - name: MySQLTest
       run: |
-        mysql -e "SELECT CURRENT_TIMESTAMP;"
+        mysql -uroot -proot -e "SELECT CURRENT_TIMESTAMP;"
 
     - name: Python
       run: |
