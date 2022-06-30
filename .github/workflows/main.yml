@@ -1,0 +1,23 @@
+# MySql on GitHub 2021-07-14 at 19:13:56
+
+name: Test
+
+on:
+  push
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install
+      run: |
+        sudo apt-get install python-pip python-dev libmysqlclient-dev
+        pip install MySQL-python
+
+    - name: Test
+      run: |
+        sudo systemctl start mysql.service
+        python3 select.py
