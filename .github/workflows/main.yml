@@ -19,11 +19,9 @@ jobs:
 
     - name: MySQL
       run: |
+        sudo apt-get remove mysql
+        sudo apt-get install mysql
         sudo systemctl start mysql.service
-
-    - name: MySQlRoot
-      run: |
-        mysqladmin -u root password '121212'
 
     - name: Test
       run: |
