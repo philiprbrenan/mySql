@@ -14,8 +14,8 @@ jobs:
 
     - name: Install
       run: |
-        sudo apt-get install python-pip python-dev libmysqlclient-dev
-        pip install MySQL-python
+        sudo apt-get install python3-pip 
+        pip3 install mysql-connector-python
 
     - name: Test
       run: |
