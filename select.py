@@ -22,13 +22,10 @@ print("The number of rows is ", row[0])
 
 cur.execute("update test.people set phone = 666 where name = 'eee'");                      # Update
  
-cur.execute("SELECT * FROM test.people")
-row = cur.fetchone(); print(cur); print(row[0])
-row = cur.fetchone(); print(cur); print(row[0])
-row = cur.fetchone(); print(cur); print(row[0])
-row = cur.fetchone(); print(cur); print(row[0])
-row = cur.fetchone(); print(cur); print(row[0])
-row = cur.fetchone(); print(cur); print(row[0])
-row = cur.fetchone(); print(cur); print(row[0])
+cur.execute("SELECT * FROM test.people")                                                   # Select 
+results = cur.fetchall()
 
+for r in results: 
+  print(r)
+  
 cnx.close()                                                                                # Close   
