@@ -7,18 +7,19 @@ cur.execute("SELECT CURDATE()")                                                 
 row = cur.fetchone()                                                                       # Fetch row 
 print("Current date is: {0}".format(row[0]))
 
-cur.execute("CREATE DATABASE test")
-cur.execute("CREATE TABLE test.people(name text, phone text)")
-cur.execute("INSERT INTO  test.people values('aaa', 111)")
+cur.execute("CREATE DATABASE test")                                                        # Create database
+cur.execute("CREATE TABLE test.people(name text, phone text)")                             # Create table
+
+cur.execute("INSERT INTO  test.people values('aaa', 111)")                                 # Load table  
 cur.execute("INSERT INTO  test.people values('bbb', 222)")
 cur.execute("INSERT INTO  test.people values('ccc', 333)")
 cur.execute("INSERT INTO  test.people values('ddd', 444)")
 cur.execute("INSERT INTO  test.people values('eee', 555)")
-cur.execute("SELECT COUNT(*) FROM test.people")
 
 cur.execute("SELECT COUNT(*) FROM test.people")                                            # Count rows 
 row = cur.fetchone()                                                                        
 print("The number of rows is ", row[0])
+cur.close()
 
 cur.execute("update test.people set phone = 666 where name = 'eee'");                      # Update
  
@@ -27,5 +28,7 @@ results = cur.fetchall()
 
 for r in results: 
   print(r)
-  
+
+cur.close()
+
 cnx.close()                                                                                # Close   
