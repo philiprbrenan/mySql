@@ -6,11 +6,11 @@ cur = cnx.cursor()                                                              
 cur.execute("SELECT CURDATE()")                                                            # Execute a query
 row = cur.fetchone()                                                                       # Fetch row 
 print("Current date is: {0}".format(row[0]))
-
-cur.execute("CREATE TABLE people(name text, phone text)")
-cur.execute("INSERT INTO  people values('aaa', 111)")
-cur.execute("INSERT INTO  people values('bbb', 222)")
-cur.execute("SELECT COUNT(*) FROM people")
+cur.execute("CREATE DATABASE test")
+cur.execute("CREATE TABLE test.people(name text, phone text)")
+cur.execute("INSERT INTO  test.people values('aaa', 111)")
+cur.execute("INSERT INTO  test.people values('bbb', 222)")
+cur.execute("SELECT COUNT(*) FROM test.people")
 row = cur.fetchone()                                                                       # Fetch row 
 print(row)
 
