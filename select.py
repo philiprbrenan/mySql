@@ -12,6 +12,6 @@ cur.execute("INSERT INTO  test.people values('aaa', 111)")
 cur.execute("INSERT INTO  test.people values('bbb', 222)")
 cur.execute("SELECT COUNT(*) FROM test.people")
 row = cur.fetchone()                                                                       # Fetch row 
-print(row)
+print("The number of rows is ", row[0])
 
 cnx.close()                                                                                # Close   
