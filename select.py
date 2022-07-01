@@ -21,6 +21,7 @@ row = cur.fetchone()
 print("The number of rows is ", row[0])
 cur.close()
 
+cur = cnx.cursor()                                                                         # Create cursor
 cur.execute("update test.people set phone = 666 where name = 'eee'");                      # Update
  
 cur.execute("SELECT * FROM test.people")                                                   # Select 
@@ -28,6 +29,14 @@ results = cur.fetchall()
 
 for r in results: 
   print(r)
+
+cur.close()
+
+cur = cnx.cursor()                                                                         # Create cursor
+cur.execute("delete from test.people where phone = 666")                                   # Delete 
+cur.execute("SELECT COUNT(*) FROM test.people")                                            # Count rows 
+row = cur.fetchone()                                                                        
+print("The number of rows after the delete is ", row[0])
 
 cur.close()
 
